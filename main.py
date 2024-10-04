@@ -14,7 +14,7 @@
 # pip install yt_dlp
 # pip install altair vega_datasets
 # pip install vl-convert-python
-# altair_saver
+# pip install altair_saver
 
 import os
 import streamlit as st
