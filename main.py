@@ -124,14 +124,14 @@ if not os.path.exists(repertoire_sortie):
 fichier_video = None
 
 # Section 1 : Téléchargement de la vidéo YouTube
-st.header("Étape 1 : Si vous n'avez pas encore de vidéo au format MP4, c'est ici.")
+st.header("Étape 1 : Si vous n'avez pas encore de vidéo au format MP4, c'est ici !")
 url_video = st.text_input("Entrez l'URL de la vidéo YouTube")
 if st.button("Télécharger la vidéo depuis YouTube"):
     fichier_video = telecharger_video_youtube(url_video, repertoire_sortie)
 
 # Section 2 : Drag and Drop
 st.header("Étape 2 : Drag and Drop votre fichier MP4")
-fichier_video_local = st.file_uploader("Ou déposez un fichier vidéo local (MP4)", type=["mp4"])
+fichier_video_local = st.file_uploader("Ou déposez directement un fichier vidéo local (MP4)", type=["mp4"])
 if fichier_video_local:
     fichier_video_path = os.path.join(repertoire_sortie, fichier_video_local.name)
     with open(fichier_video_path, "wb") as f:
@@ -148,7 +148,7 @@ if fichier_video:
         # Si les données d'émotions sont disponibles, on peut afficher les graphiques
         if not df.empty:
             # Graphique 1 : Line Chart with Datum (secondes remplacées)
-            st.header("Graphique 1 : Évolution des émotions (Line Chart)")
+            st.header("Graphique 1 : Évolution des émotions - Line Chart ")
             seconds = list(range(len(df)))  # Remplacement par les secondes
             df_reset = df.reset_index().melt('index', var_name='Emotion', value_name='Score')
             line_chart = alt.Chart(df_reset).mark_line().encode(
@@ -160,7 +160,7 @@ if fichier_video:
             line_chart.save(os.path.join(repertoire_sortie, "line_chart_emotions.png"))
 
             # Graphique 2 : Streamgraph
-            st.header("Graphique 2 : Streamgraph des émotions")
+            st.header("Graphique 2 : Autre représentation du graphique 1 - Streamgraph des émotions")
             streamgraph = alt.Chart(df_reset).mark_area().encode(
                 alt.X('index:Q', title='Secondes'),
                 alt.Y('Score:Q', stack='center', title='Score d\'émotion'),
@@ -171,7 +171,7 @@ if fichier_video:
             streamgraph.save(os.path.join(repertoire_sortie, "streamgraph_emotions.png"))
 
             # Graphique 3 : Bar Chart with Rounded Edges (Barres avec arrondis)
-            st.header("Graphique 3 : Bar Chart with Rounded Edges")
+            st.header("Graphique 3 : Bar Chart")
             st.caption("Ce graphique affiche les scores d'émotions totaux pour chaque émotion. "
                        "Chaque barre représente le score total d'une émotion pour toutes les images extraites.")
             bar_chart = alt.Chart(df_reset).mark_bar(
@@ -200,9 +200,9 @@ if fichier_video:
             line_chart_smoothed.save(os.path.join(repertoire_sortie, "emotions_lissees_5s.png"))
 
             # Graphique supplémentaire : Graphique de flux des émotions lissées sur 5 secondes (streamgraph)
-            st.header("Graphique supplémentaire : Graphique de flux des émotions lissées sur 5 secondes")
+            st.header("Graphique 5 : Autre représentation du graphique 4 - Streamgraph lissées sur 5 secondes")
             st.caption("Ce graphique de flux représente les données d'émotions lissées sur 5 secondes. "
-                       "Il permet de visualiser les variations des émotions de manière fluide.")
+                       "Il permet de visualiser les variations des émotions de manière plus fluide.")
             streamgraph_smoothed = alt.Chart(df_reset_smoothed).mark_area().encode(
                 alt.X('index:Q', title='Secondes'),
                 alt.Y('Score:Q', stack='center', title='Score d\'émotion lissé (5 secondes)'),
