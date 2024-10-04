@@ -1,3 +1,16 @@
+##########################################
+# Projet : FER - Facial-Emotion-Recognition
+# Auteur : Stéphane Meurisse
+# Contact : stephane.meurisse@example.com
+# Site Web : https://www.codeandcortex.fr
+# LinkedIn : https://www.linkedin.com/in/st%C3%A9phane-meurisse-27339055/
+# Date : 4 octobre 2024
+# Licence : Ce programme est un logiciel libre : vous pouvez le redistribuer selon les termes de la Licence Publique Générale GNU v3
+##########################################
+
+
+
+
 # pip install opencv-python streamlit pytube fer pandas matplotlib tensorflow xlsxwriter
 # pip install tensorflow-gpu ##### si gpu
 # pip install watchdog
