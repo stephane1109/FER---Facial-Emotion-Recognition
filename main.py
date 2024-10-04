@@ -8,9 +8,6 @@
 # Licence : Ce programme est un logiciel libre : vous pouvez le redistribuer selon les termes de la Licence Publique Générale GNU v3
 ##########################################
 
-
-
-
 # pip install opencv-python streamlit pytube fer pandas matplotlib tensorflow xlsxwriter
 # pip install tensorflow-gpu ##### si gpu
 # pip install watchdog
